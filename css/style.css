@@ -1,0 +1,113 @@
+:root {
+  /* Base Colors */
+  --primary-color: #FF0000; /* YouTube red for highlights and buttons */
+  --secondary-color: #4b5563; /* Dark gray for secondary elements */
+  --background-color: #25262c; /* Very dark gray for background */
+  --foreground-color: #2c2c2c; /* Dark gray for cards, panels, or inputs */
+
+  /* Text Colors */
+  --text-primary: #e5e5e5; /* Light gray for main text */
+  --text-secondary: #9ca3af; /* Muted gray for secondary text */
+  --text-highlight: #FF4E4E; /* Bright red for links or active states */
+
+  /* Border Colors */
+  --border-color: #3f3f3f; /* Dark gray for dividers and borders */
+
+  /* Accent Colors */
+  --success-color: #1c7c32; /* Dark green for success messages */
+  --warning-color: #d39e00; /* Deep yellow for warnings */
+  --error-color: #a71d2a; /* Deep red for errors */
+
+  /* Shadows */
+  --shadow-color: rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+
+  /* Miscellaneous */
+  --hover-color: rgba(255, 0, 0, 0.3); /* Light red for hover effects */
+  --disabled-color: #3b3b3b; /* Dark gray for disabled elements */
+  --enabled-color: #FF0000; /* Vibrant YouTube red */
+}
+
+
+body {
+  background-color: var(--background-color);
+  width: 300px;
+  height: 450px;
+  margin: 10px;
+}
+
+.intro {
+  margin: 0;
+  height: 150px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--text-highlight);
+  border: solid;
+  border-color: var(--border-color);
+  border-radius: 5%;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0);
+}
+
+.options {
+  padding: 20px;
+  background-color: var(--secondary-color);
+  border-radius: 12%;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0);
+}
+
+.option {
+  margin: 20px;
+  display: flex; /* Ensures the content is aligned in a row */
+  align-items: center; /* Vertically aligns the slider and text */
+  gap: 10px; /* Adds space between the slider and the text */
+  color: var(--text-primary);
+}
+
+.option p {
+  margin: 0; /* Removes default margin for better alignment */
+  font-size: 14px; /* Adjust text size as needed */
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.square .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--disabled-color);
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.square .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 0;
+}
+
+.square input:checked + .slider {
+  background-color: var(--enabled-color);
+}
+
+.square input:checked + .slider:before {
+  transform: translateX(30px);
+}

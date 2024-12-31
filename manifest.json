@@ -1,0 +1,17 @@
+{
+    "name": "Youtube Thumbnail customizer",
+    "description": "customize youtube thumnail widgets",
+    "version": "1.0",
+    "permissions": ["storage", "scripting", "activeTab"],
+    "manifest_version": 3,
+    "action": {
+      "default_popup": "main.html",
+      "default_icon": "images/icon.png"
+    },
+
+    "content_scripts": [ {
+      "css": [ "css/style.css" ],
+      "js" : ["scripts/content.js"],
+      "matches": [ "*://*.youtube.com/*","*://*.youtube.com/watch*" ]
+   } ]
+  }
