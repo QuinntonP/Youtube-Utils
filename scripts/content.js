@@ -1,6 +1,7 @@
 (function () {
     runOptions()
 
+    
     function runOptions(){
         chrome.storage.sync.get('checkboxStates', (data) => {
             const checkboxStates = data.checkboxStates || {};
@@ -16,6 +17,7 @@
             }
         });
     }
+
 
     // to see changes in the URL
     const observer = new MutationObserver(() => {
@@ -58,8 +60,6 @@
     }
 
 
-    
-
     async function addDislikes() {
         const videoId = new URLSearchParams(window.location.search).get('v');
         console.log("Video ID is: " + videoId);
@@ -87,6 +87,7 @@
             })
         }
     }
+
 
     function getDislikes(videoId) {
         const apiUrl = `https://returnyoutubedislikeapi.com/votes?videoId=${videoId}`;
