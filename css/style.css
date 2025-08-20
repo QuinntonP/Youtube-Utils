@@ -28,7 +28,7 @@
 }
 
 
-body {
+#extension_body {
   background-color: var(--background-color);
   width: 300px;
   height: 450px;
