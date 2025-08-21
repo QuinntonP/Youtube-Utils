@@ -8,6 +8,8 @@
     const removeDislikesValue = checkboxStates['dislikes'];
     const removeTitles = checkboxStates['remove-titles']
 
+        if (location.hostname.includes("youtube.com")){
+
         if (paidPromotionValue) {
             removePaidPromotion();
         }
@@ -16,11 +18,13 @@
             addDislikes();
         }
 
-        if (removeTitles)
-            console.log("hello world");
-    });
+        if (removeTitles){
+            removeTitle();
+        }
+    }
 
-    // observer.observe(document.body, { childList: true, subtree: true });
+
+    });
 
     let lastVideoId = null;
 
@@ -33,11 +37,22 @@
             const checkboxStates = data.checkboxStates || {};
             if (checkboxStates['dislikes']) {
                 addDislikes();
-            }
+            }  
         });
     });
 
     observer.observe(document.body, { childList: true, subtree: true });
+
+
+    function removeTitle() {
+        // I should probably make it observe and watch for changes... but meh.
+        setInterval(() => {
+            document.title = " :) ";
+            document.querySelector('#title yt-formatted-string')?.remove();
+        }, 300);
+
+        
+    }
 
 
     function removePaidPromotion() {
@@ -52,6 +67,7 @@
         `;
         document.head.appendChild(style);
     }
+
 
     function formatCount(n) {
         if (n >= 1_000_000) {
@@ -106,11 +122,6 @@
         }, 100);
     }
     
-    
-    
-    
-
-      
 
     async function getDislikes(videoId) {
         const apiUrl = `https://returnyoutubedislikeapi.com/votes?videoId=${videoId}`;
